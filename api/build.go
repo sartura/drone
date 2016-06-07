@@ -3,6 +3,7 @@ package api
 import (
 	"fmt"
 	"io"
+        "io/ioutil"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -205,9 +206,16 @@ func PostBuild(c *gin.Context) {
 	}
 
 	// fetch the .drone.yml file from the database
-	raw, err := remote_.File(user, repo, build, droneYml)
+	//raw, err := remote_.File(user, repo, build, droneYml)
+	//if err != nil {
+	//	log.Errorf("failure to get build config for %s. %s", repo.FullName, err)
+	//	c.AbortWithError(404, err)
+	//	return
+	//}
+
+        raw, err := ioutil.ReadFile("/var/lib/drone/.drone.yml")
 	if err != nil {
-		log.Errorf("failure to get build config for %s. %s", repo.FullName, err)
+		log.Errorf("failure to get build config %s", err)
 		c.AbortWithError(404, err)
 		return
 	}

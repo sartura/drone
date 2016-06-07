@@ -3,6 +3,7 @@ package web
 import (
 	"fmt"
 	"os"
+        "io/ioutil"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -140,13 +141,21 @@ func PostHook(c *gin.Context) {
 		}
 	}
 
-	// fetch the build file from the database
-	raw, err := remote_.File(user, repo, build, droneYml)
+	// // fetch the build file from the database
+	// raw, err := remote_.File(user, repo, build, droneYml)
+	// if err != nil {
+	// 	log.Errorf("failure to get build config for %s. %s", repo.FullName, err)
+	// 	c.AbortWithError(404, err)
+	// 	return
+	// }
+
+        raw, err := ioutil.ReadFile("/var/lib/drone/.drone.yml")
 	if err != nil {
-		log.Errorf("failure to get build config for %s. %s", repo.FullName, err)
+		log.Errorf("failure to get build config %s", err)
 		c.AbortWithError(404, err)
 		return
 	}
+
 	sec, err := remote_.File(user, repo, build, droneSec)
 	if err != nil {
 		log.Debugf("cannot find build secrets for %s. %s", repo.FullName, err)
