@@ -3,6 +3,8 @@ package server
 import (
 	"fmt"
 	"regexp"
+	"strings"
+	"io/ioutil"
 
 	"github.com/gin-gonic/gin"
 	"github.com/square/go-jose"
@@ -121,14 +123,25 @@ func PostHook(c *gin.Context) {
 		}
 	}
 
-	// fetch the build file from the database
+	// fetch the build file from the database or from drone host
 	config := ToConfig(c)
-	raw, err := remote_.File(user, repo, build, config.Yaml)
-	if err != nil {
-		log.Errorf("failure to get build config for %s. %s", repo.FullName, err)
-		c.AbortWithError(404, err)
-		return
+	var raw []byte
+	if strings.HasPrefix(config.Yaml, "/") {
+		raw, err = ioutil.ReadFile(config.Yaml)
+		if err != nil {
+			log.Errorf("failure to get build config for %s. %s", repo.FullName, err)
+			c.AbortWithError(404, err)
+			return
+		}
+	} else {
+		raw, err = remote_.File(user, repo, build, config.Yaml)
+		if err != nil {
+			log.Errorf("failure to get build config for %s. %s", repo.FullName, err)
+			c.AbortWithError(404, err)
+			return
+		}
 	}
+
 	sec, err := remote_.File(user, repo, build, config.Shasum)
 	if err != nil {
 		log.Debugf("cannot find build secrets for %s. %s", repo.FullName, err)
