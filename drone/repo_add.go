@@ -29,9 +29,12 @@ func repoAdd(c *cli.Context) error {
 		return err
 	}
 
-	if _, err := client.RepoPost(owner, name); err != nil {
+	r, err := client.RepoPost(owner, name);
+	if err != nil {
 		return err
 	}
+
+	fmt.Printf("\n\nPlease add the hook manually in the repository %s, for event `Repository push`:\n%s\n\n", r.FullName, r.HookURI)
 	fmt.Printf("Successfully activated repository %s/%s\n", owner, name)
 	return nil
 }

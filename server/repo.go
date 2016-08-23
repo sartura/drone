@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/securecookie"
 
-	"github.com/drone/drone/cache"
+	//"github.com/drone/drone/cache"
 	"github.com/drone/drone/remote"
 	"github.com/drone/drone/router/middleware/session"
 	"github.com/drone/drone/shared/httputil"
@@ -32,15 +32,16 @@ func PostRepo(c *gin.Context) {
 		c.String(404, err.Error())
 		return
 	}
-	m, err := cache.GetPerms(c, user, owner, name)
-	if err != nil {
-		c.String(404, err.Error())
-		return
-	}
-	if !m.Admin {
-		c.String(403, "Administrative access is required.")
-		return
-	}
+	//m, err := cache.GetPerms(c, user, owner, name)
+	//if err != nil {
+	//	c.String(404, err.Error())
+	//	return
+	//}
+	// if !m.Admin {
+	// 	// TODO: Set this behaviour via cli argument and envvar
+	// 	c.String(403, "Administrative access is required to add hook automatically. You will need to add the hook manually.")
+	// 	//return
+	// }
 
 	// error if the repository already exists
 	_, err = store.GetRepoOwnerName(c, owner, name)
@@ -72,14 +73,16 @@ func PostRepo(c *gin.Context) {
 		httputil.GetURL(c.Request),
 		sig,
 	)
+	r.HookURI = link
 
 	// activate the repository before we make any
 	// local changes to the database.
-	err = remote.Activate(user, r, link)
-	if err != nil {
-		c.String(500, err.Error())
-		return
-	}
+	// err = remote.Activate(user, r, link)
+	// fmt.Printf("Link: %v", link);
+	// if err != nil {
+	// 	c.String(500, err.Error())
+	// 	return
+	// }
 
 	// persist the repository
 	err = store.CreateRepo(c, r)
