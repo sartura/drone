@@ -29,9 +29,13 @@ func repoAdd(c *cli.Context) error {
 		return err
 	}
 
-	if _, err := client.RepoPost(owner, name); err != nil {
+	r, err := client.RepoPost(owner, name);
+	if err != nil {
 		return err
 	}
-	fmt.Printf("Successfully activated repository %s/%s\n", owner, name)
+
+	fmt.Printf("\n* Easy access URL for adding a hook manually in the %s can be found below:\n", repo)
+	fmt.Printf("https://bitbucket.org/%s/admin/addon/admin/bitbucket-webhooks/bb-webhooks-repo-admin", repo)
+	fmt.Printf("\n*Add the following hook manually in the repository %s, for event `Repository push`:\n%s\n\n", r.FullName, r.HookURI)
 	return nil
 }
