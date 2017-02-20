@@ -13,7 +13,6 @@ import (
 	"github.com/drone/drone/agent"
 	"github.com/drone/drone/build/docker"
 	"github.com/drone/drone/model"
-	"github.com/drone/drone/queue"
 	"github.com/drone/drone/yaml"
 
 	"github.com/codegangsta/cli"
@@ -33,11 +32,6 @@ var execCmd = cli.Command{
 			Name:   "local",
 			Usage:  "build from local directory",
 			EnvVar: "DRONE_LOCAL",
-		},
-		cli.StringSliceFlag{
-			Name:   "plugin",
-			Usage:  "plugin steps to enable",
-			EnvVar: "DRONE_PLUGIN_ENABLE",
 		},
 		cli.StringSliceFlag{
 			Name:   "secret",
@@ -71,12 +65,6 @@ var execCmd = cli.Command{
 			Name:   "pull",
 			Usage:  "always pull latest plugin images",
 		},
-		cli.StringFlag{
-			EnvVar: "DRONE_PLUGIN_NAMESPACE",
-			Name:   "namespace",
-			Value:  "plugins",
-			Usage:  "default plugin image namespace",
-		},
 		cli.StringSliceFlag{
 			EnvVar: "DRONE_PLUGIN_PRIVILEGED",
 			Name:   "privileged",
@@ -84,8 +72,8 @@ var execCmd = cli.Command{
 			Value: &cli.StringSlice{
 				"plugins/docker",
 				"plugins/docker:*",
-				"plguins/gcr",
-				"plguins/gcr:*",
+				"plugins/gcr",
+				"plugins/gcr:*",
 				"plugins/ecr",
 				"plugins/ecr:*",
 			},
@@ -96,7 +84,7 @@ var execCmd = cli.Command{
 		cli.StringFlag{
 			EnvVar: "DOCKER_HOST",
 			Name:   "docker-host",
-			Usage:  "docker deamon address",
+			Usage:  "docker daemon address",
 			Value:  "unix:///var/run/docker.sock",
 		},
 		cli.BoolFlag{
@@ -158,7 +146,7 @@ var execCmd = cli.Command{
 			Usage:  "repository is private",
 			EnvVar: "DRONE_REPO_PRIVATE",
 		},
-		cli.BoolFlag{
+		cli.BoolTFlag{
 			Name:   "repo.trusted",
 			Usage:  "repository is trusted",
 			EnvVar: "DRONE_REPO_TRUSTED",
@@ -327,20 +315,18 @@ func exec(c *cli.Context) error {
 	}
 
 	a := agent.Agent{
-		Update:    agent.NoopUpdateFunc,
-		Logger:    agent.TermLoggerFunc,
-		Engine:    engine,
-		Timeout:   c.Duration("timeout.inactivity"),
-		Platform:  "linux/amd64",
-		Namespace: c.String("namespace"),
-		Disable:   c.StringSlice("plugin"),
-		Escalate:  c.StringSlice("privileged"),
-		Netrc:     []string{},
-		Local:     dir,
-		Pull:      c.Bool("pull"),
+		Update:   agent.NoopUpdateFunc,
+		Logger:   agent.TermLoggerFunc,
+		Engine:   engine,
+		Timeout:  c.Duration("timeout.inactivity"),
+		Platform: "linux/amd64",
+		Escalate: c.StringSlice("privileged"),
+		Netrc:    []string{},
+		Local:    dir,
+		Pull:     c.Bool("pull"),
 	}
 
-	payload := &queue.Work{
+	payload := &model.Work{
 		Yaml:     string(file),
 		Verified: c.BoolT("yaml.verified"),
 		Signed:   c.BoolT("yaml.signed"),
@@ -354,7 +340,7 @@ func exec(c *cli.Context) error {
 			Avatar:    c.String("repo.avatar"),
 			Timeout:   int64(c.Duration("timeout").Minutes()),
 			IsPrivate: c.Bool("repo.private"),
-			IsTrusted: c.Bool("repo.trusted"),
+			IsTrusted: c.BoolT("repo.trusted"),
 			Clone:     c.String("remote.url"),
 		},
 		System: &model.System{

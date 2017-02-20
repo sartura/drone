@@ -1,5 +1,6 @@
 package fixtures
 
+// Sample Gogs push hook
 var HookPush = `
 {
   "ref": "refs/heads/master",
@@ -21,7 +22,10 @@ var HookPush = `
   "repository": {
     "id": 1,
     "name": "hello-world",
-    "url": "http://gogs.golang.org/gordon/hello-world",
+    "full_name": "gordon/hello-world",
+    "html_url": "http://gogs.golang.org/gordon/hello-world",
+    "ssh_url": "git@gogs.golang.org:gordon/hello-world.git",
+    "clone_url": "http://gogs.golang.org/gordon/hello-world.git",
     "description": "",
     "website": "",
     "watchers": 1,
@@ -44,3 +48,90 @@ var HookPush = `
   }
 }
 `
+
+// Sample Gogs tag hook
+var HookPushTag = `{
+  "secret": "l26Un7G7HXogLAvsyf2hOA4EMARSTsR3",
+  "ref": "v1.0.0",
+  "ref_type": "tag",
+  "repository": {
+    "id": 1,
+    "owner": {
+      "id": 1,
+      "username": "gordon",
+      "full_name": "Gordon the Gopher",
+      "email": "gordon@golang.org",
+      "avatar_url": "https://secure.gravatar.com/avatar/8c58a0be77ee441bb8f8595b7f1b4e87"
+    },
+    "name": "hello-world",
+    "full_name": "gordon/hello-world",
+    "description": "",
+    "private": true,
+    "fork": false,
+    "html_url": "http://gogs.golang.org/gordon/hello-world",
+    "ssh_url": "git@gogs.golang.org:gordon/hello-world.git",
+    "clone_url": "http://gogs.golang.org/gordon/hello-world.git",
+    "default_branch": "master",
+    "created_at": "2015-10-22T19:32:44Z",
+    "updated_at": "2016-11-24T13:37:16Z"
+  },
+  "sender": {
+    "id": 1,
+    "username": "gordon",
+    "full_name": "Gordon the Gopher",
+    "email": "gordon@golang.org",
+    "avatar_url": "https://secure.gravatar.com/avatar/8c58a0be77ee441bb8f8595b7f1b4e87"
+  }
+}`
+
+// HookPullRequest is a sample pull_request webhook payload
+var HookPullRequest = `{
+  "action": "opened",
+  "number": 1,
+  "pull_request": {
+    "html_url": "http://gogs.golang.org/gordon/hello-world/pull/1",
+    "state": "open",
+    "title": "Update the README with new information",
+    "body": "please merge",
+    "user": {
+      "id": 1,
+      "username": "gordon",
+      "full_name": "Gordon the Gopher",
+      "email": "gordon@golang.org",
+      "avatar_url": "http://gogs.golang.org///1.gravatar.com/avatar/8c58a0be77ee441bb8f8595b7f1b4e87"
+    },
+    "base": {
+      "label": "master",
+      "ref": "master",
+      "sha": "9353195a19e45482665306e466c832c46560532d"
+    },
+    "head": {
+      "label": "feature/changes",
+      "ref": "feature/changes",
+      "sha": "0d1a26e67d8f5eaf1f6ba5c57fc3c7d91ac0fd1c"
+    }
+  },
+  "repository": {
+    "id": 35129377,
+    "name": "hello-world",
+    "full_name": "gordon/hello-world",
+    "owner": {
+      "id": 1,
+      "username": "gordon",
+      "full_name": "Gordon the Gopher",
+      "email": "gordon@golang.org",
+      "avatar_url": "https://secure.gravatar.com/avatar/8c58a0be77ee441bb8f8595b7f1b4e87"
+    },
+    "private": true,
+    "html_url": "http://gogs.golang.org/gordon/hello-world",
+    "clone_url": "https://gogs.golang.org/gordon/hello-world.git",
+    "default_branch": "master"
+  },
+  "sender": {
+      "id": 1,
+      "username": "gordon",
+      "full_name": "Gordon the Gopher",
+      "email": "gordon@golang.org",
+      "avatar_url": "https://secure.gravatar.com/avatar/8c58a0be77ee441bb8f8595b7f1b4e87"
+    }
+}`

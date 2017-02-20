@@ -19,6 +19,8 @@ deps_backend:
 	go get -u golang.org/x/tools/cmd/cover
 	go get -u github.com/jteeuwen/go-bindata/...
 	go get -u github.com/elazarl/go-bindata-assetfs/...
+	go get -u github.com/drone/mq/...
+	go get -u github.com/tidwall/redlog
 
 gen: gen_template gen_migrations
 
@@ -44,7 +46,9 @@ test_postgres:
 build: build_static build_cross build_tar build_sha
 
 build_static:
-	go build --ldflags '${EXTLDFLAGS}-X github.com/drone/drone/version.VersionDev=$(DRONE_BUILD_NUMBER)' -o release/drone github.com/drone/drone/drone
+	go install -ldflags '${EXTLDFLAGS}-X github.com/drone/drone/version.VersionDev=$(DRONE_BUILD_NUMBER)' github.com/drone/drone/drone
+	mkdir -p release
+	cp $(GOPATH)/bin/drone release/
 
 # TODO this is getting moved to a shell script, do not alter
 build_cross:

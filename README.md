@@ -8,9 +8,11 @@ Drone is a Continuous Integration platform built on container technology. Every 
 
 In this version it is possible to specify external .drone.yml - via DRONE\_YAML environment variable. If that variable is an absolute path, then drone won't load it from the repository, but from the drone host, so be sure supply it (with docker --volume or otherwise).
 
+Browse the code at https://sourcegraph.com/github.com/drone/drone
+
 ### Goals
 
-Drone's prime directive is to help teams [ship code like GitHub](https://github.com/blog/1241-deploying-at-github#always-be-shipping). Drone is easy to install, setup and maintain and offers a powerful container-based plugin system. Drone aspires to be an industry-wide replacement for Jenkins.
+Drone's prime directive is to help teams [ship code like GitHub](https://github.com/blog/1241-deploying-at-github#always-be-shipping). Drone is easy to install, setup and maintain and offers a powerful container-based plugin system. Drone aspires to eventually offer an industry-wide replacement for Jenkins.
 
 ### Documentation
 
@@ -35,13 +37,15 @@ Contributions, questions, and comments are welcomed and encouraged. Drone develo
 
 ### Installation
 
-Please see our [installation guide](http://readme.drone.io/setup/overview) to install the official Docker image.
+Please see our [installation guide](http://readme.drone.io/admin/) to install the official Docker image.
 
 ### From Source
 
 Clone the repository to your Go workspace:
 
 ```
+export PATH=$PATH:$GOPATH/bin
+
 git clone git://github.com/drone/drone.git $GOPATH/src/github.com/drone/drone
 cd $GOPATH/src/github.com/drone/drone
 ```
@@ -49,11 +53,9 @@ cd $GOPATH/src/github.com/drone/drone
 Commands to build from source:
 
 ```sh
-export GO15VENDOREXPERIMENT=1
-
-make deps    # Download required dependencies
-make gen     # Generate code
-make build   # Build the binary
+make deps          # Download required dependencies
+make gen           # Generate code
+make build_static  # Build the binary
 ```
 
 If you are having trouble building this project please reference its `.drone.yml` file. Everything you need to know about building Drone is defined in that file.

@@ -8,12 +8,15 @@ import (
 
 // Constraints define constraints for container execution.
 type Constraints struct {
+	Repo        Constraint
+	Ref         Constraint
 	Platform    Constraint
 	Environment Constraint
 	Event       Constraint
 	Branch      Constraint
 	Status      Constraint
 	Matrix      ConstraintMap
+	Local       types.BoolTrue
 }
 
 // Match returns true if all constraints match the given input. If a single constraint
