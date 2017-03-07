@@ -8,12 +8,12 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/securecookie"
 
-	//"github.com/drone/drone/cache"
-	"github.com/drone/drone/remote"
-	"github.com/drone/drone/router/middleware/session"
-	"github.com/drone/drone/shared/httputil"
-	"github.com/drone/drone/shared/token"
-	"github.com/drone/drone/store"
+	//"github.com/sartura/drone/cache"
+	"github.com/sartura/drone/remote"
+	"github.com/sartura/drone/router/middleware/session"
+	"github.com/sartura/drone/shared/httputil"
+	"github.com/sartura/drone/shared/token"
+	"github.com/sartura/drone/store"
 )
 
 func PostRepo(c *gin.Context) {

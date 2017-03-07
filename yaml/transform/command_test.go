@@ -3,7 +3,7 @@ package transform
 import (
 	"testing"
 
-	"github.com/drone/drone/yaml"
+	"github.com/sartura/drone/yaml"
 
 	"github.com/franela/goblin"
 )

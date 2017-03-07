@@ -11,12 +11,12 @@ import (
 	"github.com/square/go-jose"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/drone/drone/model"
-	"github.com/drone/drone/remote"
-	"github.com/drone/drone/shared/httputil"
-	"github.com/drone/drone/shared/token"
-	"github.com/drone/drone/store"
-	"github.com/drone/drone/yaml"
+	"github.com/sartura/drone/model"
+	"github.com/sartura/drone/remote"
+	"github.com/sartura/drone/shared/httputil"
+	"github.com/sartura/drone/shared/token"
+	"github.com/sartura/drone/store"
+	"github.com/sartura/drone/yaml"
 	"github.com/drone/mq/stomp"
 )
 

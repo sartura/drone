@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/drone/drone/remote/bitbucket/fixtures"
+	"github.com/sartura/drone/remote/bitbucket/fixtures"
 
 	"github.com/franela/goblin"
 )

@@ -6,9 +6,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/drone/drone/router/middleware/session"
-	"github.com/drone/drone/shared/token"
-	"github.com/drone/drone/store"
+	"github.com/sartura/drone/router/middleware/session"
+	"github.com/sartura/drone/shared/token"
+	"github.com/sartura/drone/store"
 )
 
 func GetCommit(c *gin.Context) {

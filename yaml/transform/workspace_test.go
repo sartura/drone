@@ -5,7 +5,7 @@ import (
 
 	"github.com/franela/goblin"
 
-	"github.com/drone/drone/yaml"
+	"github.com/sartura/drone/yaml"
 )
 
 func TestWorkspace(t *testing.T) {

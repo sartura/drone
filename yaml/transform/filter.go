@@ -1,8 +1,8 @@
 package transform
 
 import (
-	"github.com/drone/drone/model"
-	"github.com/drone/drone/yaml"
+	"github.com/sartura/drone/model"
+	"github.com/sartura/drone/yaml"
 )
 
 // ChangeFilter is a transform function that alters status constraints set to

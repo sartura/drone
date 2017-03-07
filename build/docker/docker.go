@@ -3,9 +3,9 @@ package docker
 import (
 	"io"
 
-	"github.com/drone/drone/build"
-	"github.com/drone/drone/build/docker/internal"
-	"github.com/drone/drone/yaml"
+	"github.com/sartura/drone/build"
+	"github.com/sartura/drone/build/docker/internal"
+	"github.com/sartura/drone/yaml"
 
 	"github.com/samalba/dockerclient"
 )

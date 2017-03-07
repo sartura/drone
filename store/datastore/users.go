@@ -3,7 +3,7 @@ package datastore
 import (
 	"fmt"
 
-	"github.com/drone/drone/model"
+	"github.com/sartura/drone/model"
 	"github.com/russross/meddler"
 )
 

@@ -4,9 +4,9 @@ import (
 	"time"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/drone/drone/agent"
-	"github.com/drone/drone/build/docker"
-	"github.com/drone/drone/model"
+	"github.com/sartura/drone/agent"
+	"github.com/sartura/drone/build/docker"
+	"github.com/sartura/drone/model"
 	"github.com/drone/mq/stomp"
 
 	"github.com/samalba/dockerclient"

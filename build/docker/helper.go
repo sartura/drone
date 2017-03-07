@@ -1,7 +1,7 @@
 package docker
 
 import (
-	"github.com/drone/drone/build"
+	"github.com/sartura/drone/build"
 	"github.com/samalba/dockerclient"
 )
 

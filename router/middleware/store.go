@@ -2,8 +2,8 @@ package middleware
 
 import (
 	"github.com/codegangsta/cli"
-	"github.com/drone/drone/store"
-	"github.com/drone/drone/store/datastore"
+	"github.com/sartura/drone/store"
+	"github.com/sartura/drone/store/datastore"
 
 	"github.com/gin-gonic/gin"
 )

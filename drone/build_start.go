@@ -6,7 +6,7 @@ import (
 	"strconv"
 
 	"github.com/codegangsta/cli"
-	"github.com/drone/drone/model"
+	"github.com/sartura/drone/model"
 )
 
 var buildStartCmd = cli.Command{

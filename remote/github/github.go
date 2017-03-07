@@ -10,9 +10,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/drone/drone/model"
-	"github.com/drone/drone/remote"
-	"github.com/drone/drone/shared/httputil"
+	"github.com/sartura/drone/model"
+	"github.com/sartura/drone/remote"
+	"github.com/sartura/drone/shared/httputil"
 
 	"github.com/google/go-github/github"
 	"golang.org/x/net/context"

@@ -1,6 +1,6 @@
 package transform
 
-import "github.com/drone/drone/yaml"
+import "github.com/sartura/drone/yaml"
 
 const clone = "clone"
 

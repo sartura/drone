@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/drone/drone/model"
+	"github.com/sartura/drone/model"
 
 	"github.com/google/go-github/github"
 )

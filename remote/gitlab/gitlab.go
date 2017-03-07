@@ -10,12 +10,12 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/drone/drone/model"
-	"github.com/drone/drone/remote"
-	"github.com/drone/drone/shared/httputil"
-	"github.com/drone/drone/shared/oauth2"
+	"github.com/sartura/drone/model"
+	"github.com/sartura/drone/remote"
+	"github.com/sartura/drone/shared/httputil"
+	"github.com/sartura/drone/shared/oauth2"
 
-	"github.com/drone/drone/remote/gitlab/client"
+	"github.com/sartura/drone/remote/gitlab/client"
 )
 
 const DefaultScope = "api"

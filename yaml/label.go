@@ -3,7 +3,7 @@ package yaml
 import (
 	"gopkg.in/yaml.v2"
 
-	"github.com/drone/drone/yaml/types"
+	"github.com/sartura/drone/yaml/types"
 )
 
 // ParseLabel parses the labels section of the Yaml document.

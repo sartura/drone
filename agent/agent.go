@@ -9,11 +9,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/drone/drone/build"
-	"github.com/drone/drone/model"
-	"github.com/drone/drone/version"
-	"github.com/drone/drone/yaml"
-	"github.com/drone/drone/yaml/transform"
+	"github.com/sartura/drone/build"
+	"github.com/sartura/drone/model"
+	"github.com/sartura/drone/version"
+	"github.com/sartura/drone/yaml"
+	"github.com/sartura/drone/yaml/transform"
 	"github.com/drone/envsubst"
 )
 

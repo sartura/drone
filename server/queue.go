@@ -10,9 +10,9 @@ import (
 	"golang.org/x/net/context"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/drone/drone/model"
-	"github.com/drone/drone/remote"
-	"github.com/drone/drone/store"
+	"github.com/sartura/drone/model"
+	"github.com/sartura/drone/remote"
+	"github.com/sartura/drone/store"
 	"github.com/drone/mq/stomp"
 	"github.com/gorilla/websocket"
 )

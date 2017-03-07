@@ -3,8 +3,8 @@ package cache
 import (
 	"fmt"
 
-	"github.com/drone/drone/model"
-	"github.com/drone/drone/remote"
+	"github.com/sartura/drone/model"
+	"github.com/sartura/drone/remote"
 	"golang.org/x/net/context"
 )
 

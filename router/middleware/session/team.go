@@ -1,8 +1,8 @@
 package session
 
 import (
-	"github.com/drone/drone/cache"
-	"github.com/drone/drone/model"
+	"github.com/sartura/drone/cache"
+	"github.com/sartura/drone/model"
 
 	log "github.com/Sirupsen/logrus"
 	"github.com/gin-gonic/gin"

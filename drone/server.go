@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/drone/drone/router"
-	"github.com/drone/drone/router/middleware"
+	"github.com/sartura/drone/router"
+	"github.com/sartura/drone/router/middleware"
 
 	"github.com/Sirupsen/logrus"
 	"github.com/codegangsta/cli"

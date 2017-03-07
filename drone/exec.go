@@ -10,10 +10,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/drone/drone/agent"
-	"github.com/drone/drone/build/docker"
-	"github.com/drone/drone/model"
-	"github.com/drone/drone/yaml"
+	"github.com/sartura/drone/agent"
+	"github.com/sartura/drone/build/docker"
+	"github.com/sartura/drone/model"
+	"github.com/sartura/drone/yaml"
 
 	"github.com/codegangsta/cli"
 	"github.com/joho/godotenv"
@@ -102,7 +102,7 @@ var execCmd = cli.Command{
 		//
 		// Please note the below flags are mirrored in the plugin starter kit and
 		// should be kept synchronized.
-		// https://github.com/drone/drone-plugin-starter
+		// https://github.com/sartura/drone-plugin-starter
 		//
 
 		cli.StringFlag{

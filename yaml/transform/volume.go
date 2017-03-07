@@ -1,6 +1,6 @@
 package transform
 
-import "github.com/drone/drone/yaml"
+import "github.com/sartura/drone/yaml"
 
 // ImageVolume mounts a default volume (used for drone exec)
 func ImageVolume(conf *yaml.Config, volumes []string) error {

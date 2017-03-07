@@ -8,15 +8,15 @@ import (
 	"time"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/drone/drone/remote"
-	"github.com/drone/drone/shared/httputil"
-	"github.com/drone/drone/store"
-	"github.com/drone/drone/yaml"
+	"github.com/sartura/drone/remote"
+	"github.com/sartura/drone/shared/httputil"
+	"github.com/sartura/drone/store"
+	"github.com/sartura/drone/yaml"
 	"github.com/gin-gonic/gin"
 	"github.com/square/go-jose"
 
-	"github.com/drone/drone/model"
-	"github.com/drone/drone/router/middleware/session"
+	"github.com/sartura/drone/model"
+	"github.com/sartura/drone/router/middleware/session"
 	"github.com/drone/mq/stomp"
 )
 

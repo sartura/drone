@@ -3,7 +3,7 @@ package yaml
 import (
 	"fmt"
 
-	"github.com/drone/drone/yaml/types"
+	"github.com/sartura/drone/yaml/types"
 	"gopkg.in/yaml.v2"
 )
 

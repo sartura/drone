@@ -3,7 +3,7 @@ package yaml
 import (
 	"path/filepath"
 
-	"github.com/drone/drone/yaml/types"
+	"github.com/sartura/drone/yaml/types"
 )
 
 // Constraints define constraints for container execution.

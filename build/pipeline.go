@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/drone/drone/yaml"
+	"github.com/sartura/drone/yaml"
 )
 
 // element represents a link in the linked list.

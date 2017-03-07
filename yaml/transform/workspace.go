@@ -3,7 +3,7 @@ package transform
 import (
 	"path/filepath"
 
-	"github.com/drone/drone/yaml"
+	"github.com/sartura/drone/yaml"
 )
 
 // WorkspaceTransform transforms ...

@@ -8,7 +8,7 @@ Drone is a Continuous Integration platform built on container technology. Every 
 
 In this version it is possible to specify external .drone.yml - via DRONE\_YAML environment variable. If that variable is an absolute path, then drone won't load it from the repository, but from the drone host, so be sure supply it (with docker --volume or otherwise).
 
-Browse the code at https://sourcegraph.com/github.com/drone/drone
+Browse the code at https://sourcegraph.com/github.com/sartura/drone
 
 ### Goals
 
@@ -46,8 +46,8 @@ Clone the repository to your Go workspace:
 ```
 export PATH=$PATH:$GOPATH/bin
 
-git clone git://github.com/drone/drone.git $GOPATH/src/github.com/drone/drone
-cd $GOPATH/src/github.com/drone/drone
+git clone git://github.com/sartura/drone.git $GOPATH/src/github.com/drone/drone
+cd $GOPATH/src/github.com/sartura/drone
 ```
 
 Commands to build from source:
